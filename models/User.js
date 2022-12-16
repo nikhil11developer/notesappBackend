@@ -1,0 +1,12 @@
+const mongoose = require('mongoose')
+
+const UserSchema = mongoose.Schema({
+    name:{type:String , required:true},
+    email:{type:String , required:true},
+    password:{type:String , required:true},
+    date:{type:Date , default:  Date.now}
+})
+//user is the name of the model
+const User=mongoose.model('user' , UserSchema)
+User.createIndexes();
+module.exports=User

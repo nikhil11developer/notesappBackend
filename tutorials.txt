@@ -1,0 +1,43 @@
+create a backend application
+
+use npm init
+npm i express
+npm i mongoose
+
+
+type the following code in index.js
+
+const   express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+
+
+const PORT=5000
+
+mongoose.connect('mongodb://localhost:27017/nikhilzipper')
+const database=mongoose.connection
+
+
+database.on('error',(error)=>{
+    console.log(error)
+})
+
+database.once('connected',()=>{
+    console.log('database connected')
+})
+
+app.get("/" , (req , res)=>{
+    res.send("nikhil srivastava the master developer")
+})
+
+app.listen(PORT, ()=>{
+    console.log(`the application has been started on port ${PORT}`);
+})
+
+
+create two folders models and routes
+
+on the mongodb side a database has collection and collection has documents
+
+
+
